@@ -6,7 +6,12 @@ console.log('Here is : ', 'Object')
 Create an object represents you
 have your first name, last name, age, dob(date of birth), favorite food (3),favorite movie (5)
 */
-
+      var persons ={ name :"mohd" ,
+      age:26,
+       dob:1992,
+       favoritefood :[ "mansaf","shaorma", "adas"], 
+        movie:[ "aaa","bbb","ccc","ddd","eee"]
+            }
 
 
 
@@ -31,6 +36,33 @@ Ex: firstName(persons) => ['John', 'Alex', 'Alice', 'Thor', 'Soso']
 */
 
 
+
+function firstName(obj){
+ var output = [];
+ var i = 0;
+ for (var key in obj) {
+   output.push(obj[i]['name']['first']);
+   i++;
+ }
+ return output;
+}
+
+function firstName2(obj){
+ var output = [];
+ // var i = 0;
+ for (let i = 0; i < obj.length; i++) {
+   output.push(obj[i]['name']['first']);
+   // i++;
+ }
+ return output;
+}
+
+
+
+
+
+
+
 /*
 3
 Using the varabile persons
@@ -42,6 +74,17 @@ Ex: averageAge(persons) => 41.2
 */
 
 
+function averageAge(obj){
+  var sum = 0;
+  var i = 0;
+  for (var key in obj) {
+    sum += persons[i].age;
+    i++
+    }
+    return sum/obj.length;
+  }
+
+   
 /*
 4
 Using the varabile persons
@@ -51,6 +94,23 @@ and return the full name of the older person
 
 Ex: olderPerson(persons) => "Soso Al-Amora"
 */
+function olderPerson(obj){
+
+  var old = obj[0].age;
+  var index = 0;
+   
+     for (var i=1;i<obj.length;i++){
+
+      if(obj[i].age>old){
+
+        old=obj[i].age;
+        index=i;
+    
+      }
+    }
+    var fullName=obj[index].name.first +" "+obj [index].name.last;  
+      return fullName
+     }
 
 
 /*
@@ -63,6 +123,31 @@ and return the full name of the person have longest full name
 Ex: longestName(persons) => "Soso Al-Amora"
 */
 
+function longestName(obj){
+
+var  longName = obj[0].name.first +" "+obj [0].name.last;
+
+   for(var i=1; i<obj.length; i++)
+   {
+  fullName=obj[i].name.first +" "+obj [i].name.last;
+  if( fullName.length > longName.length)
+    {
+      longName = fullName; 
+    }
+
+   }
+
+  return longName;
+}
+
+
+
+
+
+   
+
+
+
 
 /*
 6
@@ -73,6 +158,12 @@ and return the full name of the person have longest full name
 
 Ex: longestName(persons) => "Soso Al-Amora"
 */
+
+
+
+
+   
+
 
 //////////////////////////////////////////////////////////////////
 
@@ -99,6 +190,22 @@ Ex: repeatWord("My name is alex mercer class name B baba mama hello Hello HELLO"
 }
 */
 
+   function repeatWord(str) {
+  
+    var arr = str.toLowerCase();
+    arr = arr.split(" ");
+    var obj={} ;
+    for (var i=0;i<arr.length;i++){
+      var counter =0;
+      for(var x=0;x<arr.length;x++)
+      {if(arr[x]===arr[i])
+      counter++;  
+      }
+      obj[arr[i]]=counter;
+       
+    }
+      return obj;
+   }
 
 
 /*
